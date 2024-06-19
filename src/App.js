@@ -29,8 +29,6 @@ function App() {
   function chechPdf(arg){
     if (arg.type.includes('pdf') ){
       setFiles([arg]) 
-      refOne.current.files = [arg]
-      document.getElementById('myInput').files = [arg]
     }
     else{
       setBlock(!block)
@@ -47,13 +45,13 @@ function App() {
 
   console.log(files)
   return (
-    <form encType = "multipart/form-data" method="post" className="App" action="https://f.smartcardio.ru/"  >
+    <form encType = "multipart/form-data" method="post" className="App" action="https://f.smartcardio.ru/api/ocr/"  >
       <CSSTransition in = {block} classNames={'fade'} timeout={500}>
         <div className="errorBlock">
             <p>Можно только пдф</p>
         </div>
       </CSSTransition>
-      <input  ref = {refOne} style={{display : 'none'}} onChange={ e => { 
+      <input accept="pdf"  ref = {refOne} style={{display : 'none'}} onChange={ e => { 
         if (e.target.files[0]){
           
           chechPdf(e.target.files[0])
