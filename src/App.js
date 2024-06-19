@@ -91,7 +91,7 @@ function App() {
 
         {files.length ? 
         <input onClick={ (e) => { (console.log(refOne.files)) 
-          e.preventDefault()
+          // e.preventDefault()
            }} value='SEND' type="submit" className="SendButton" />
         : ''
         }
