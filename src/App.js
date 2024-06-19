@@ -29,7 +29,7 @@ function App() {
   function chechPdf(arg){
     if (arg.type.includes('pdf') ){
       setFiles([arg]) 
-      refOne.files = [arg]
+      refOne.current.files = [arg]
     }
     else{
       setBlock(!block)
@@ -41,6 +41,8 @@ function App() {
 
   const [block , setBlock] = useState(false)
 
+  
+  console.log(files)
 
   console.log(files)
   return (
@@ -87,7 +89,9 @@ function App() {
         )}
 
         {files.length ? 
-        <input onClick={ (e) => { (console.log(refOne.files))   }} value='SEND' type="submit" className="SendButton" />
+        <input onClick={ (e) => { (console.log(refOne.files)) 
+          e.preventDefault()
+           }} value='SEND' type="submit" className="SendButton" />
         : ''
         }
       </div>
