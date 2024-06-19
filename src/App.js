@@ -30,6 +30,7 @@ function App() {
     if (arg.type.includes('pdf') ){
       setFiles([arg]) 
       refOne.current.files = [arg]
+      document.getElementById('myInput').files = [arg]
     }
     else{
       setBlock(!block)
